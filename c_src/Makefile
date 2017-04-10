@@ -1,10 +1,18 @@
 SHELL = /bin/bash
 
 ARCH := $(shell getconf LONG_BIT)
+CHIP := $(shell uname -m)
+
+ifneq ($(CHIP), "x86_64")
+  ARCH := $(shell uname -m)
+  echo "[ARM] ARM BASED ARCHITECTURE : $(ARCH)"
+endif
+
 OS := $(shell uname)
 
 BUILD_ARCH_32 := ia32
 BUILD_ARCH_64 := x64
+BUILD_ARCH_armv7l := arm
 BUILD_ARCH := $(BUILD_ARCH_$(ARCH))
 
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
