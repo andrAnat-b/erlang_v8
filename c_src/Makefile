@@ -5,7 +5,6 @@ CHIP := $(shell uname -m)
 
 ifneq ($(CHIP), "x86_64")
   ARCH := $(shell uname -m)
-  echo "[ARM] ARM BASED ARCHITECTURE : $(ARCH)"
 endif
 
 OS := $(shell uname)
