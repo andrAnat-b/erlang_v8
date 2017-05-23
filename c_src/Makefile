@@ -19,13 +19,13 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 LIB_DIR := $(ROOT_DIR)/../build
 PRIV_DIR := $(ROOT_DIR)/../priv
 
-DEPOT_REF := 85adaa343e5e9f499e59bd0cb98d02cc2fc9d2d5
+DEPOT_REF := 4f27802b5c6e1abfb6809006763149456496a3db
 DEPOT_DIR := $(LIB_DIR)/depot_tools
 
 TARGET_BIN := $(PRIV_DIR)/erlang_v8
 TARGET_SRC := erlang_v8.cc report.cc vm.cc
 
-V8_REF := 7c79736019c9a0b9ef03f64ab26e46bb98692abf
+V8_REF := Ib14dcef7f30bab88fad92b1a7329163beea50503
 V8_DIR := $(LIB_DIR)/v8
 V8_LIB := $(V8_DIR)/out.gn/$(BUILD_ARCH).release
 V8_LIB_RPATH := $(realpath --relative-to=$(TARGET_BIN) $(V8_LIB))
