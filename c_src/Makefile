@@ -1,11 +1,18 @@
 SHELL = /bin/bash
-
+INSTR : = $(armv7l)
 ARCH := $(shell getconf LONG_BIT)
 OS := $(shell uname)
 
 BUILD_ARCH_32 := ia32
 BUILD_ARCH_64 := x64
+BUILD_ARCH_armv7l : arm
+case "${INSTR}"
+  in
+  armv7l) ARCH := 'armv7l';;
+  *) ARCH := ${ARCH};;
+esac
 BUILD_ARCH := $(BUILD_ARCH_$(ARCH))
+echo -e '\nBuild for '"$BUILD_ARCH"
 
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
